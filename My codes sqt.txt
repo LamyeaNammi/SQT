@@ -1,0 +1,300 @@
+package food_website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class food {
+    WebDriver driver;
+    
+    public void invokeBrowser() {
+        try {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            getLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLogin() {
+        try {
+            driver.get("http://localhost/food_website_backend/food_website_backend/food%20website%20backend/");
+            driver.findElement(By.xpath("/html/body/section/form/input[1]")).sendKeys("abc@gmail.com");
+            driver.findElement(By.xpath("/html/body/section/form/input[2]")).sendKeys("1234");
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("/html/body/section/form/input[3]")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        food myFood = new food();
+        myFood.invokeBrowser();
+
+
+    }
+}
+
+
+
+
+.......................................
+Contact (veri)
+
+
+
+package food_website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Food {
+    WebDriver driver;
+    
+    public void invokeBrowser() {
+        try {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            getLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLogin() {
+        try {
+            driver.get("http://localhost/food_website_backend/food_website_backend/food%20website%20backend/contact.php");
+            driver.findElement(By.xpath("//input[@name='name']")).sendKeys("John Doe");
+            driver.findElement(By.xpath("//input[@name='number']")).sendKeys("1234567890");
+            driver.findElement(By.xpath("//input[@name='email']")).sendKeys("abc@gmail.com");
+            driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("This is a test message.");
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//input[@type='submit']")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Food myFood = new Food();
+        myFood.invokeBrowser();
+    }
+}
+.....................................
+package food_website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class Food {
+    private WebDriver driver;
+    private WebDriverWait wait;
+    
+    public void invokeBrowser() {
+        try {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+            ChromeOptions options = new ChromeOptions();
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            getLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
+
+    public void getLogin() {
+        try {
+            driver.get("http://localhost/food_website_backend/food_website_backend/food%20website%20backend/checkout.php");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/form/input[1]"))).sendKeys("lamyeafarha@gmail.com");
+            driver.findElement(By.xpath("/html/body/section/form/input[2]")).sendKeys("1");
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/section/form/input[3]"))).click();
+            // Add assertions or further steps to verify the checkout process
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Food myFood = new Food();
+        myFood.invokeBrowser();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+Nammi
+
+2
+
+weare@gmail.com
+
+
+
+
+....................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package food_website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.NoSuchElementException;
+
+import java.time.Duration;
+
+public class Food {
+    private WebDriver driver;
+    private WebDriverWait wait;
+    
+    public void invokeBrowser() {
+        try {
+            // Set the path to the chromedriver executable
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+            ChromeOptions options = new ChromeOptions();
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            getLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
+
+    public void getLogin() {
+        try {
+            // Navigate to the login page
+            driver.get("http://localhost/food_website_backend/food_website_backend/food%20website%20backend/checkout.php");
+            
+            // Wait for the email input field to be visible and enter the email
+            WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
+            emailField.sendKeys("lamyeafarha@gmail.com");
+
+            // Enter the password
+            WebElement passwordField = driver.findElement(By.name("password"));
+            passwordField.sendKeys("1");
+
+            // Click the login button
+            WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.name("submit")));
+            loginButton.click();
+            
+            // Wait for and verify the checkout page
+            waitForCheckoutPage();
+            
+            // Perform the checkout process
+            completeCheckout();
+            
+        } catch (NoSuchElementException e) {
+            System.out.println("An element was not found: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void waitForCheckoutPage() {
+        try {
+            // Wait for an element on the checkout page to be visible (e.g., a checkout button or summary section)
+            WebElement checkoutSummary = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkout-summary")));
+            System.out.println("Successfully navigated to the checkout page.");
+        } catch (NoSuchElementException e) {
+            System.out.println("Checkout page element was not found: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void completeCheckout() {
+        try {
+            // Example steps for the checkout process
+            // Replace the locators and actions with those appropriate for your application
+
+            // Wait for and select the shipping address
+            WebElement shippingAddress = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("shipping-address")));
+            shippingAddress.click();
+
+            // Wait for and select the payment method
+            WebElement paymentMethod = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("payment-method")));
+            paymentMethod.click();
+
+            // Wait for and click the confirm order button
+            WebElement confirmOrderButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("confirm-order")));
+            confirmOrderButton.click();
+
+            // Optionally, verify order confirmation
+            WebElement orderConfirmation = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("order-confirmation")));
+            System.out.println("Order successfully placed!");
+
+        } catch (NoSuchElementException e) {
+            System.out.println("An element in the checkout process was not found: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Food myFood = new Food();
+        myFood.invokeBrowser();
+    }
+}
+
+
+
+
+
+
+
+
