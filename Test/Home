@@ -1,0 +1,40 @@
+package food_website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class food {
+    WebDriver driver;
+    
+    public void invokeBrowser() {
+        try {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            getLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLogin() {
+        try {
+            driver.get("http://localhost/food_website_backend/food_website_backend/food%20website%20backend/");
+            driver.findElement(By.xpath("/html/body/section/form/input[1]")).sendKeys("abc@gmail.com");
+            driver.findElement(By.xpath("/html/body/section/form/input[2]")).sendKeys("1234");
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("/html/body/section/form/input[3]")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        food myFood = new food();
+        myFood.invokeBrowser();
+
+
+    }
+}
