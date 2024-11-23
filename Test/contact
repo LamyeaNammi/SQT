@@ -1,0 +1,43 @@
+
+package food_website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Food {
+    WebDriver driver;
+    
+    public void invokeBrowser() {
+        try {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            getLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLogin() {
+        try {
+            driver.get("http://localhost/food_website_backend/food_website_backend/food%20website%20backend/contact.php");
+            driver.findElement(By.xpath("//input[@name='name']")).sendKeys("John Doe");
+            driver.findElement(By.xpath("//input[@name='number']")).sendKeys("1234567890");
+            driver.findElement(By.xpath("//input[@name='email']")).sendKeys("abc@gmail.com");
+            driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("This is a test message.");
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//input[@type='submit']")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Food myFood = new Food();
+        myFood.invokeBrowser();
+    }
+}
+
+
